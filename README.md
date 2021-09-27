@@ -83,7 +83,7 @@ Now its time to bind this collection to the CollectionView.
 
 Similarly you can modify, remove or remove all the objects from realm like below.
 
-Add:
+**Add:**
 ```
 realm.Write(() =>
 {
@@ -99,7 +99,7 @@ realm.Write(() =>
 });
 ```
 
-Remove:
+**Remove:**
 ```
 realm.Write(() =>
 {
@@ -111,7 +111,7 @@ realm.Write(() =>
 
 Here I have removed the selected item from the CollectionView by maintaining the SelectedItem through property binding.
 
-Clear:
+**Clear:**
 ```
 realm.Write(() =>
 {
