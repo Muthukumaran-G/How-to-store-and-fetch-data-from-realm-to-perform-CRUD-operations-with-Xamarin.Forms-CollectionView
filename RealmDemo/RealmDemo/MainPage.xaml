@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:realmdemo="clr-namespace:RealmDemo"
+             x:Class="RealmDemo.MainPage">
+
+    <ContentPage.BindingContext>
+        <realmdemo:ViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout BackgroundColor="Beige">
+        <Grid HeightRequest="80">
+            <Button Grid.Column="0" Text="Fetch Items" Command="{Binding FetchDataCommand}"/>
+            <Button Grid.Column="1" Text="Add" Command="{Binding AddCommand}"/>
+            <Button Grid.Column="2" Text="Remove Selected Item" Command="{Binding RemoveCommand}"/>
+            <Button Grid.Column="3" Text="Remove All" Command="{Binding RemoveAllCommand}"/>
+        </Grid>
+        <Grid>
+            <CollectionView ItemsSource="{Binding Books}" Margin="10" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" x:Name="CollectionView">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Label Text="No items" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold,Italic"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" Margin="10" CornerRadius="10">
+                            <StackLayout Margin="5">
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="BookName: " FontAttributes="Bold"/>
+                                            <Span Text="{Binding BookName}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="BookDescription: " FontAttributes="Bold"/>
+                                            <Span Text="{Binding BookDescription}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Text="{Binding BookAuthor, StringFormat='- {0}'}" HorizontalTextAlignment="End"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </StackLayout>
+</ContentPage>
