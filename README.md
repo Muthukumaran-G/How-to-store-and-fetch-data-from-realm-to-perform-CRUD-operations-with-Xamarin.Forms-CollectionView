@@ -56,7 +56,7 @@ public class ViewModel: INotifyPropertyChanged
 
 Make sure that the object is added within the write method to avoid exception. Here I have used discard variable since, there is no need to allocate memory for the boolean value returned from the PopulateData method. Moreover the use of discard is just for showcase purpose ;)
 
-The collection added into the realm DB will be retreived in the form of IEnumerable collection. However when performing realtime CRUD actions to IEnumerable collection, it won't reflected in the UI. To overcome this make sure to cast the RealmCollection to ObservableCollection as like below.
+The collection added into the realm DB will be retreived in the form of IEnumerable collection. However when performing realtime CRUD actions to IEnumerable collection, it won't be reflected in the UI. To overcome this make sure to cast the RealmCollection to ObservableCollection as like below.
 
 ```
 private ObservableCollection<Model> books;
