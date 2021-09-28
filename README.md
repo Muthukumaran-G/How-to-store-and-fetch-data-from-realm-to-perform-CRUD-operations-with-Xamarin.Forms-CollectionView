@@ -81,7 +81,7 @@ Now its time to bind this collection to the CollectionView.
 </CollectionView>
 ```
 
-Similarly you can modify, remove or remove all the objects from realm like below.
+Similarly you can add, modify, remove or clear all the objects from realm like below.
 
 **Add:**
 ```
